@@ -5,7 +5,7 @@
 ```code
 sudo apt-get update
 sudo apt-get install docker.io docker-compose
-sudo usermod -a -G docker $USER```
+sudo usermod -a -G docker $USER
 ```
 
 Put the content of this project into `/usr/local/tidal-connect/`
