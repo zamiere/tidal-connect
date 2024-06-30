@@ -8,11 +8,11 @@ WorkingDirectory=/usr/local/tidal-connect/
 Type=oneshot
 RemainAfterExit=yes
 
-ExecStart=docker-compose up -d
+ExecStart=docker-compose up -d --no-recreate
 
-ExecStop=docker-compose down
+ExecStop=docker-compose stop
 
-ExecReload=docker-compose up -d
+ExecReload=docker-compose up -d --no-recreate
 
 [Install]
 WantedBy=multi-user.target

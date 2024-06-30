@@ -9,15 +9,17 @@ sudo usermod -a -G docker $USER```
 ```
 
 Put the content of this project into `/usr/local/tidal-connect/`
-Choose your .env file from samples folder, for example if you have "Apple USB-C to 3.5mm" soundcard, copy `samples/applejack.env` into /usr/local/tidal-connect/' folder as `.env' file.
+Choose your .env file from samples folder, for example if you have "Apple USB-C to 3.5mm" soundcard, copy `samples/applejack.env` into `/usr/local/tidal-connect/` folder as `.env` file.
 
-Use the `restart-watch.sh` to show errors in logs while rebuilding docker image.
+Use the `build.sh` to show errors in logs while rebuilding docker image.
+
+The build refresh the image apt source.list (archive replaced by legacy) and install libasound2-plugins package for providing speex rate_converter for resampling when it needed.
 
 ## Service install
 
 Copy the `assets/systemd/system/tidal-connect.service` into `/etc/systemd/system/` folder.
 
-Start with `systemctl start tidal-connect`, it will run `docker-composer up -d` command.
+Start with `systemctl start tidal-connect`, it will run `docker-composer up -d --no-recreate` command.
 Set to autoload with `systemctl enable tidal-connect`
 
 ## Triggerhappy config
@@ -25,8 +27,8 @@ Set to autoload with `systemctl enable tidal-connect`
 
 ## Control scripts
 
-next-song.sh, pause-song-sh, previous-song.sh used by triggerhappy.
-You can watch the speaker-controller-application screen with this command, dont use "q" or "Ctrl+c" to exit, only detach from screen with "Ctrl+b", "d" keys.
+`next-song.sh`, `pause-song-sh`, `previous-song.sh` used by triggerhappy.
+You can watch the speaker-controller-application screen with `speaker-controller.sh` command, dont use "q" or "Ctrl+c" to exit, only detach from screen with "Ctrl+b", "d" keys.
 Read more about tmux commands [here](https://man7.org/linux/man-pages/man1/tmux.1.html)
 
 More scripts with reading out current song title, etc. available [here](https://github.com/ce-designs/tidal-connect-docker)
