@@ -13,7 +13,7 @@ Choose your .env file from samples folder, for example if you have "Apple USB-C 
 
 Use the `build.sh` to show errors in logs while rebuilding docker image.
 
-The build refresh the image apt source.list (archive replaced by legacy) and install libasound2-plugins package for providing speex rate_converter for resampling when it needed.
+The build refresh the image apt source.list (archive replaced by legacy) and install libasound2-plugins package for providing speex/samplerate resamplers when it's needed.
 
 ## Service install
 
