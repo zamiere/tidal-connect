@@ -24,8 +24,10 @@ Set to autoload with `systemctl enable tidal-connect`
 
 ## Triggerhappy config
 [Triggerhappy media.conf for cheap remote control use with Raspberry Pi and MoOde.](https://github.com/zamiere/tidal-connect/blob/main/assets/triggerhappy/triggers.d/media.conf)  
-Remove `/etc/systemd/system/multi-user.target.wants/triggerhappy.service` symlink and replace with a copy from `/lib/systemd/system/triggerhappy.service` and change `--user nobody` to `--user pi` or another user with sudo access on moOde.
-Reload the changed scripts with `systemctl daemon-reload` and restart with `systemctl restart triggerhappy`.  
+Remove `/etc/systemd/system/multi-user.target.wants/triggerhappy.service` symlink.
+Override with a copy from `/lib/systemd/system/triggerhappy.service` to `/etc/systemd/system/triggerhappy.service` and change `--user nobody` to `--user pi` or another user with sudo access on moOde.
+Reload the changed scripts with `systemctl daemon-reload`.
+Enable the service with `systemctl enable triggerhappy` and restart with `systemctl restart triggerhappy`.
 Check if a shortcut doesn't work with `systemctl status triggerhappy`.
 
 ## Control scripts
