@@ -1,6 +1,6 @@
 # tidal-connect
 
-## Install docker for moOde
+## Install docker for moOde (64bit)
 
 ```code
 sudo apt-get update
